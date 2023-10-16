@@ -3,39 +3,39 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <footer>
-      <div class="footer_content">
-        <div class="footer_contacts">
+      <div className="footer_content">
+        <div className="footer_contacts">
           <h1>BUYTECHX</h1>
           <p>Seguinos en nuestras redes</p>
-          <div class="footer_social_media">
+          <div className="footer_social_media">
             <a
               href="https://www.instagram.com/"
               target="_blank"
-              class="footer-link"
+              className="footer-link"
               id="instagram"
             >
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
             </a>
             <a
               href="https://www.facebook.com/"
               target="_blank"
-              class="footer-link"
+              className="footer-link"
               id="facebook"
             >
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a
               href="https://www.twitter.com/"
               target="_blank"
-              class="footer-link"
+              className="footer-link"
               id="twitter"
             >
-              <i class="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter"></i>
             </a>
           </div>
         </div>
 
-        <ul class="footer-list">
+        <ul className="footer-list">
           <li>
             <h3>Información</h3>
           </li>
@@ -49,40 +49,40 @@ const Footer = () => {
             <p>Buenos Aires, Argentina</p>
           </li>
         </ul>
-        <ul class="footer-list">
+        <ul className="footer-list">
           <li>
             <h3>Categorias</h3>
           </li>
           <li>
-            <a href="#" class="footer-link">
+            <a href="#" className="footer-link">
               Inicio
             </a>
           </li>
           <li>
-            <a href="#" class="footer-link">
+            <a href="#" className="footer-link">
               Contacto
             </a>
           </li>
           <li>
-            <a href="#" class="footer-link">
+            <a href="#" className="footer-link">
               Nosotros
             </a>
           </li>
         </ul>
-        <div class="footer_subscribe">
+        <div className="footer_subscribe">
           <h3>Suscribite</h3>
 
           <p>Recibí ofertas y promociones!</p>
 
-          <div class="input_group">
+          <div className="input_group">
             <input type="email" id="email" placeholder="Correo Electrónico" />
-            <button class="input-button">
-              <i class="fa-regular fa-envelope"></i>
+            <button className="input-button">
+              <i className="fa-regular fa-envelope"></i>
             </button>
           </div>
         </div>
       </div>
-      <div class="footer_copyright">
+      <div className="footer_copyright">
         &copy; 2023 | Ezequiel Arocha | All rights reserved
       </div>
     </footer>
