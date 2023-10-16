@@ -1,23 +1,20 @@
 import "./Card.scss";
 
-const Card = () => {
+const Card = ({ producto }) => {
   return (
     <a className="card" href="#">
       <article className="card__article">
-        <div class="card__image-container">
+        <div className="card__image-container">
           <img
             className="card__image"
-            src="img/auriculares.png"
-            alt="Auriculares"
+            src={producto.foto}
+            alt={producto.nombre}
           />
         </div>
         <div className="card__content">
-          <h2 className="card__heading">Auriculares</h2>
+          <h2 className="card__heading">{producto.nombre}</h2>
           <div className="card__description">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
-              obcaecati tempora, ratione facilis totam maiores!
-            </p>
+            <p>{producto.detalle}</p>
           </div>
         </div>
       </article>
