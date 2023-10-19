@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ProductoContext from "../contexts/ProductoContext";
 
 const formInicial = {
   id: null,
@@ -6,6 +7,7 @@ const formInicial = {
   Precio: "",
   Stock: "",
   Marca: "",
+  Categoria: "",
   Detalles: "",
   Foto: "",
   Envío: false,
@@ -13,6 +15,8 @@ const formInicial = {
 
 const Formulario = () => {
   const [form, setForm] = useState(formInicial);
+  const { crearProductoContext } = useContext(ProductoContext);
+
   const handleChange = (e) => {
     const { type, name, checked, value } = e.target;
     setForm({
@@ -20,18 +24,24 @@ const Formulario = () => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await crearProductoContext(form);
+  };
+
   const handleReset = () => {};
   return (
     <>
-      <h3>Agregar : Editar</h3>;
-      <form>
+      <h2>Agregar : Editar</h2>;
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="lbl-nombre">Nombre</label>
           <input
             type="text"
             name="nombre"
             id="lbl-nombre"
+            placeholder="Ingrese un nombre"
             value={form.nombre}
             onChange={handleChange}
           />
@@ -42,7 +52,8 @@ const Formulario = () => {
             type="text"
             name="precio"
             id="lbl-precio"
-            value={form.Precio}
+            placeholder="Ingrese un precio"
+            value={form.precio}
             onChange={handleChange}
           />
         </div>
@@ -52,7 +63,8 @@ const Formulario = () => {
             type="text"
             name="stock"
             id="lbl-stock"
-            value={form.Stock}
+            placeholder="Ingrese un stock"
+            value={form.stock}
             onChange={handleChange}
           />
         </div>
@@ -62,19 +74,34 @@ const Formulario = () => {
             type="text"
             name="marca"
             id="lbl-marca"
-            value={form.Marca}
+            placeholder="Ingrese un marca"
+            value={form.marca}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="lbl-categoria">Categoría</label>
+          <input
+            type="text"
+            name="categoria"
+            id="lbl-categoria"
+            placeholder="Ingrese un categoria"
+            value={form.categoria}
             onChange={handleChange}
           />
         </div>
         <div>
           <label htmlFor="lbl-detalles">Detalles</label>
-          <input
-            type="text"
-            name="detalles"
-            id="lbl-detalles"
-            value={form.Detalles}
-            onChange={handleChange}
-          />
+          {
+            <input
+              type="text"
+              name="detalles"
+              id="lbl-detalles"
+              placeholder="Ingrese un detalles"
+              value={form.detalles}
+              onChange={handleChange}
+            />
+          }
         </div>
         <div>
           <label htmlFor="lbl-foto">Foto</label>
@@ -82,7 +109,8 @@ const Formulario = () => {
             type="text"
             name="foto"
             id="lbl-foto"
-            value={form.Foto}
+            placeholder="Ingrese un foto"
+            value={form.foto}
             onChange={handleChange}
           />
         </div>
@@ -92,12 +120,15 @@ const Formulario = () => {
             type="checkbox"
             name="envio"
             id="lbl-envio"
-            checked={form.Envío}
+            placeholder="Ingrese un envio"
+            checked={form.envío}
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Guardar</button>
-        <button type="reset">Limpiar</button>
+        <button type="submit">Enviar</button>
+        <button type="reset" onClick={handleReset}>
+          Limpiar
+        </button>
       </form>
     </>
   );
