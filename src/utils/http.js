@@ -37,6 +37,27 @@ export const post = async (url, dato) => {
     console.error("ERROR POST", error);
   }
 };
+
+export const put = async (url, id, dato) => {
+  try {
+    const config = {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(dato),
+    };
+    const urlFull = url + id;
+    const respuesta = await fetch(urlFull, config);
+    if (!respuesta.ok) {
+      throw new Error(
+        `Ocurrió un problema ${respuesta.status} ${respuesta.statusText}`
+      );
+    }
+    const productoEditado = await respuesta.json();
+    return productoEditado;
+  } catch (error) {
+    console.error("Error PUT", error);
+  }
+};
 export const del = async (url, id) => {
   try {
     const config = {

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import Navbar from "./Navbar";
 
@@ -8,9 +9,9 @@ const Header = () => {
       <Navbar />
       <div className="search-bar">
         {/* <!-- search-bar -->*/}
-        <div className="search-bar__logo-container">
+        <Link className="search-bar__logo-container" to="/">
           <img src="img/logo.png" alt="BuyTechX" />
-        </div>
+        </Link>
         <form action="" className="search-bar__form-container">
           <label htmlFor="busqueda" className="search-bar__form-label"></label>
           <input
@@ -25,9 +26,9 @@ const Header = () => {
             className="search-bar__form-submit"
           />
         </form>
-        <div className="search-bar__carrito-container">
+        <Link className="search-bar__carrito-container" to="/carrito">
           <i className="fa-solid fa-cart-shopping"></i>
-        </div>
+        </Link>
         <div className="menu-toggle">
           <label htmlFor="menu" className="menu-toggle__label">
             <span className="menu-toggle__top-bread"></span>

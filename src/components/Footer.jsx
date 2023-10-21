@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -54,19 +55,19 @@ const Footer = () => {
             <h3>Categorias</h3>
           </li>
           <li>
-            <a href="#" className="footer-link">
+            <a href="index.html" className="footer-link">
               Inicio
             </a>
           </li>
           <li>
-            <a href="#" className="footer-link">
+            <Link href="#" className="footer-link" to="/contacto">
               Contacto
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="footer-link">
+            <Link href="#" className="footer-link" to="/nosotros">
               Nosotros
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="footer_subscribe">

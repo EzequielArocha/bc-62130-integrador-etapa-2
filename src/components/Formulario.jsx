@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ProductoContext from "../contexts/ProductoContext";
 
 const formInicial = {
@@ -13,9 +13,14 @@ const formInicial = {
   Envío: false,
 };
 
-const Formulario = () => {
+const Formulario = ({ productoAEditar, setProductoAEditar }) => {
   const [form, setForm] = useState(formInicial);
-  const { crearProductoContext } = useContext(ProductoContext);
+  const { crearProductoContext, actualizarProductoContext } =
+    useContext(ProductoContext);
+
+  useEffect(() => {
+    productoAEditar ? setForm(productoAEditar) : setForm(formInicial);
+  }, [productoAEditar, setProductoAEditar]);
 
   const handleChange = (e) => {
     const { type, name, checked, value } = e.target;
@@ -27,10 +32,22 @@ const Formulario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await crearProductoContext(form);
+    try {
+      if (form.id === null) {
+        await crearProductoContext(form);
+      } else {
+        await actualizarProductoContext(form);
+      }
+      handleReset();
+    } catch (error) {
+      console.error("Ocurrio un error en el handleSubmit", error);
+    }
   };
 
-  const handleReset = () => {};
+  const handleReset = () => {
+    setForm(formInicial);
+    setProductoAEditar(null);
+  };
   return (
     <>
       <h2>Agregar : Editar</h2>;
@@ -121,7 +138,7 @@ const Formulario = () => {
             name="envio"
             id="lbl-envio"
             placeholder="Ingrese un envio"
-            checked={form.envío}
+            checked={form.envio}
             onChange={handleChange}
           />
         </div>

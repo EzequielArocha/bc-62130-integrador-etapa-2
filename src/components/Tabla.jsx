@@ -3,7 +3,7 @@ import "./Tabla.scss";
 import TablaFila from "./TablaFila";
 import ProductoContext from "../contexts/ProductoContext";
 
-const Tabla = () => {
+const Tabla = ({ setProductoAEditar }) => {
   const { productos } = useContext(ProductoContext);
   return (
     <table className="tabla-alta">
@@ -23,7 +23,11 @@ const Tabla = () => {
       <tbody>
         {productos &&
           productos.map((producto, idx) => (
-            <TablaFila key={idx} producto={producto} />
+            <TablaFila
+              key={idx}
+              producto={producto}
+              setProductoAEditar={setProductoAEditar}
+            />
           ))}
       </tbody>
     </table>

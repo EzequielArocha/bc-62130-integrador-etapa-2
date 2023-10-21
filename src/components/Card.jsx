@@ -1,6 +1,10 @@
 import "./Card.scss";
 
 const Card = ({ producto }) => {
+  const handleClick = (producto) => {
+    console.log(producto);
+  };
+
   return (
     <a className="card" href="#">
       <article className="card__article">
@@ -16,6 +20,7 @@ const Card = ({ producto }) => {
           <div className="card__description">
             <p>{producto.detalle}</p>
           </div>
+          <button onClick={() => handleClick(producto)}>Agregar</button>
         </div>
       </article>
     </a>

@@ -1,7 +1,7 @@
 {
   "productos": [
     {
-      "nombre": "Auriculares",
+      "nombre": "Auriculare x",
       "foto": "img/auriculares.png",
       "detalles": "Lorem ipsum dolor sit, amet consectetur adipisicing.",
       "precio": 250.5,
@@ -12,7 +12,7 @@
       "envio": false
     },
     {
-      "nombre": "IPhone 12",
+      "nombre": "IPhone 16",
       "foto": "img/Smartwatch-Applewebp.png",
       "detalles": "Quasi cupiditate quisquam facere molestiae",
       "precio": 240.3,
@@ -79,7 +79,7 @@
     },
     {
       "id": 8,
-      "nombre": "Producto X",
+      "nombre": "hola",
       "precio": "2333",
       "stock": "2",
       "marca": "Sorny",
@@ -87,6 +87,24 @@
       "detalles": "Piola. 8k",
       "foto": "img/apple-iphone-11-pro-max.jpg",
       "envio": true
+    },
+    {
+      "id": 9,
+      "Nombre": "",
+      "Precio": "",
+      "Stock": "",
+      "Marca": "",
+      "Categoria": "",
+      "Detalles": "",
+      "Foto": "",
+      "Envío": false,
+      "nombre": "TV",
+      "precio": "$100K",
+      "stock": "10",
+      "marca": "samsung",
+      "categoria": "tvs",
+      "detalles": "tv 20 pulgadas  bla bla bla bla",
+      "foto": "img/auriculares.png"
     }
   ],
   "carrito": [
