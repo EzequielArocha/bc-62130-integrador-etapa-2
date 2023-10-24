@@ -8,7 +8,6 @@ const Header = () => {
       <input type="checkbox" id="menu" />
       <Navbar />
       <div className="search-bar">
-        {/* <!-- search-bar -->*/}
         <Link className="search-bar__logo-container" to="/">
           <img src="img/logo.png" alt="BuyTechX" />
         </Link>
@@ -37,7 +36,6 @@ const Header = () => {
           </label>
         </div>
       </div>
-      {/* <!-- search-bar -->*/}
     </header>
   );
 };

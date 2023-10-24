@@ -2,11 +2,8 @@ import { createContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { post } from "../utils/http";
 
-/* CREANDO CONTEXTO */
-/* 1er -> Crear un contexto */
 const CarritoContext = createContext();
 
-/* 2do -> El armado del Provider */
 const url = import.meta.env.VITE_URL_CARRITO;
 
 const CarritoProvider = ({ children }) => {
@@ -19,7 +16,6 @@ const CarritoProvider = ({ children }) => {
   ] = useLocalStorage("carrito", []);
 
   function elProductoEstaEnElCarrito(producto) {
-    //debugger
     return carrito.filter((prod) => prod.id === producto.id).length;
   }
 
@@ -29,11 +25,9 @@ const CarritoProvider = ({ children }) => {
 
   const agregarCarritoContext = (producto) => {
     if (!elProductoEstaEnElCarrito(producto)) {
-      // No esta en el carrito
       producto.cantidad = 1;
       guardarEnElCarrito(producto);
     } else {
-      // Se que esta en el carrito
       const productoDeCarrito = obtenerProductoDeCarrito(producto);
       productoDeCarrito.cantidad++;
       actualizarCarrito(carrito);
@@ -41,15 +35,13 @@ const CarritoProvider = ({ children }) => {
   };
 
   const eliminarCarritoContext = (id) => {
-    // console.log(id)
     eliminarDelCarrito(id);
   };
 
   const guardarCarritoContext = async () => {
     try {
-      // petición asincronica a nuestro backend
       const resultado = await post(url, carrito);
-      // limpieza del localStorage y limpiar el estado
+
       limpiarCarrito();
     } catch (error) {
       console.error("Ocurrió un error en guardarCarritoContext()", error);
@@ -68,6 +60,5 @@ const CarritoProvider = ({ children }) => {
   );
 };
 
-/* 3er -> Exportaciones */
 export { CarritoProvider };
 export default CarritoContext;
