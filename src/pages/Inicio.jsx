@@ -9,8 +9,8 @@ const Inicio = () => {
     <main>
       <section className="section-cards">
         <header className="section-cards__header">
-          <h1>Lorem ipsum dolor sit amet.</h1>
-          <p>Se encontraron X productos</p>
+          <h1 class="fa-solid fa-cart-shopping"> BUYTECH</h1>
+          <p>Tecnología para el Hogar</p>
         </header>
 
         <div className="cards-container">

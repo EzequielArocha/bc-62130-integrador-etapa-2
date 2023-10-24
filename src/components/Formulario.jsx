@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import ProductoContext from "../contexts/ProductoContext";
+import { useForm } from "../hooks/useForm";
+import "./Formulario.scss";
 
 const formInicial = {
   id: null,
@@ -14,7 +16,7 @@ const formInicial = {
 };
 
 const Formulario = ({ productoAEditar, setProductoAEditar }) => {
-  const [form, setForm] = useState(formInicial);
+  const [form, setForm, handleChange] = useForm(formInicial);
   const { crearProductoContext, actualizarProductoContext } =
     useContext(ProductoContext);
 
@@ -22,13 +24,6 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
     productoAEditar ? setForm(productoAEditar) : setForm(formInicial);
   }, [productoAEditar, setProductoAEditar]);
 
-  const handleChange = (e) => {
-    const { type, name, checked, value } = e.target;
-    setForm({
-      ...form,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,10 +45,10 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
   };
   return (
     <>
-      <h2>Agregar : Editar</h2>;
-      <form onSubmit={handleSubmit}>
+      <form className="form-alta" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="lbl-nombre">Nombre</label>
+          <label htmlFor="lbl-nombre">Nombre </label>
+          <br />
           <input
             type="text"
             name="nombre"
@@ -64,7 +59,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-precio">Precio</label>
+          <label htmlFor="lbl-precio">Precio </label>
+          <br />
           <input
             type="text"
             name="precio"
@@ -75,7 +71,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-stock">Stock</label>
+          <label htmlFor="lbl-stock">Stock </label>
+          <br />
           <input
             type="text"
             name="stock"
@@ -86,7 +83,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-marca">Marca</label>
+          <label htmlFor="lbl-marca">Marca </label>
+          <br />
           <input
             type="text"
             name="marca"
@@ -97,7 +95,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-categoria">Categoría</label>
+          <label htmlFor="lbl-categoria">Categoría </label>
+          <br />
           <input
             type="text"
             name="categoria"
@@ -108,7 +107,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-detalles">Detalles</label>
+          <label htmlFor="lbl-detalles">Detalles </label>
+          <br />
           {
             <input
               type="text"
@@ -121,7 +121,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           }
         </div>
         <div>
-          <label htmlFor="lbl-foto">Foto</label>
+          <label htmlFor="lbl-foto">Foto </label>
+          <br />
           <input
             type="text"
             name="foto"
@@ -132,7 +133,8 @@ const Formulario = ({ productoAEditar, setProductoAEditar }) => {
           />
         </div>
         <div>
-          <label htmlFor="lbl-envio">Envío</label>
+          <label htmlFor="lbl-envio">Envío </label>
+          <br />
           <input
             type="checkbox"
             name="envio"

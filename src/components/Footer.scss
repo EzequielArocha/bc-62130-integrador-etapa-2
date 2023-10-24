@@ -9,7 +9,7 @@ footer {
     padding: 3rem 3.5rem;
 
     .footer_contacts {
-      h1 {
+      .fa-solid {
         margin-bottom: 0.75rem;
       }
 
@@ -104,6 +104,7 @@ footer {
           border-radius: 5px;
           cursor: pointer;
           transition: all 0.4s;
+          margin-right: 0;
 
           &:hover {
             opacity: 0.6;

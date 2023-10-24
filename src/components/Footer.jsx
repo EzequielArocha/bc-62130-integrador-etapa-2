@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div className="footer_content">
         <div className="footer_contacts">
-          <h1>BUYTECHX</h1>
+          <h2 class="fa-solid fa-cart-shopping"> BUYTECHX</h2>
           <p>Seguinos en nuestras redes</p>
           <div className="footer_social_media">
             <a
