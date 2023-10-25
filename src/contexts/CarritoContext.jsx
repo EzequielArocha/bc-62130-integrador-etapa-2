@@ -4,7 +4,7 @@ import { post } from "../utils/http";
 
 const CarritoContext = createContext();
 
-const url = import.meta.env.VITE_URL_CARRITO;
+const url = "https://65374a30bb226bb85dd30a16.mockapi.io/carrito";
 
 const CarritoProvider = ({ children }) => {
   const [

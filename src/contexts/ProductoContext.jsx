@@ -2,7 +2,7 @@ import { useState, createContext, useEffect } from "react";
 import { del, get, post, put } from "../utils/http";
 
 const ProductoContext = createContext();
-const url = "http://localhost:8080/productos/";
+const url = "https://65374a30bb226bb85dd30a16.mockapi.io/productos";
 
 const ProductoProvider = ({ children }) => {
   const [productos, setProductos] = useState(null);
